@@ -48,15 +48,15 @@
 	>
 		<div class="cancel cursor-auto">
 			{#if stepNo == 1}
-				<ul class="list-disc pl-5">
+				<ul class=" list-none pl-5">
                     <li>
                         An example question could be:
-                        <p class="block mt-5"><code class="text-lg">{currentExample}</code></p>
+                        <p class="block mt-5 border-l-[var(--r-heading-color)] border-l pl-5"><code class="text-lg">{currentExample}</code></p>
                     </li>
                 </ul>
 			{/if}
 			{#if stepNo == 2}
-				<ul class="list-disc pl-5">
+				<ul class="list-none pl-5">
                     <li>
                         Decide to search the web depending on whether or not enough information is in the database
                         to answer the question.
@@ -64,7 +64,7 @@
                 </ul>
 			{/if}
 			{#if stepNo == 3}
-				<ul class="list-disc pl-5">
+				<ul class="list-none pl-5">
 					<li>Use an LLM to generate multiple search queries in a language of our choice.</li>
 					<li>
 						These queries are then sent to a search engine:
@@ -136,18 +136,23 @@
                 </ul>
 			{/if}
 			{#if stepNo == 9}
-                    Answers from this RAG pipeline have a few benefits:
-            <ul class="list-disc pl-5">
-                <li>
-                    The LLM can generate citations for the answer, often pointing to the relevant page in PDFs.
-                </li>
-                <li>
-                    The LLM is much less likely to hallucinate than something like ChatGPT.
-                </li>
-                <li>
-                    Subsequent questions on the same document can be answered more quickly.
-                </li>
-            </ul>
+                    <ul class="list-none pl-5">
+						Answers from this RAG pipeline have a few benefits:
+									<ul class="list-disc pl-5">
+										<li>
+						The LLM can generate citations for the answer, often pointing to the relevant page in PDFs.
+										</li>
+										<li>
+						The LLM is much less likely to hallucinate than something like ChatGPT.
+										</li>
+										<li>
+						Subsequent questions on the same document can be answered more quickly.
+										</li>
+										<li>
+											Complex, multi-step questions can be researched using the CLI tools.
+											</li>
+									</ul>
+					</ul>
 			{/if}
 		</div>
 	</div>
