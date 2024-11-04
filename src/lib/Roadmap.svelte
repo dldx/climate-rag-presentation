@@ -6,7 +6,7 @@
 
 <div
 	style="--road-opacity:{stepNo >= 0 ? '1' : '0'};
-	--reviewer-agent-opacity:{stepNo >= 1 ? 'unset' : 'none'};
+	--reviewer-agent-opacity:{stepNo >= 1 ? '1' : '0'};
 	--multi-hop-agent-opacity:{stepNo >= 2 ? '1' : '0'};
 	--image-retrieval-opacity:{stepNo >= 3 ? '1' : '0'};
 	--sql-agent-opacity:{stepNo >= 4 ? '1' : '0'};
@@ -32,7 +32,7 @@
 		opacity: var(--road-opacity);
 	}
 	:global(g[inkscape\:label='reviewer-agent']) {
-		display: var(--reviewer-agent-opacity);
+		opacity: var(--reviewer-agent-opacity);
 	}
 	:global(g[inkscape\:label='multi-hop-agent']) {
 		opacity: var(--multi-hop-agent-opacity);
