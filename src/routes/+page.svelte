@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Roadmap from '$lib/Roadmap.svelte';
+
 	import RagPipeline from '$lib/RagPipeline.svelte'
 	import { Presentation, Slide, Code, Transition, Action } from '@animotion/core'
 	import { tween } from '@animotion/motion'
@@ -9,7 +11,6 @@
 	let stepNo = $state(0)
 	let grid_n_cols = $state('grid-cols-1')
 	let headingClasses = $state('')
-	import roadmap from '$lib/roadmap.svg?raw'
 
 	let randomNum = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
 	let imageToDisplay = $state('many-sources')
@@ -270,7 +271,7 @@
 			<div class=" m-16 grid {grid_n_cols} items-stretch gap-3">
 				<Transition order={1} enter="fade-enter" do={() => (grid_n_cols = 'grid-cols-1')}>
 					<div
-						class="flex h-full max-w-[20ch] flex-col border border-2 border-[#e03131] bg-[var(--r-background-color)] p-8"
+						class="flex h-full max-w-[20ch] flex-col border border-2 border-[#f46e72] bg-[var(--r-background-color)] p-8"
 					>
 						<h2 class="mb-5 text-2xl">LLMs</h2>
 						<ul class="list-disc pl-5 text-left text-xl">
@@ -298,7 +299,7 @@
 				</Transition>
 				<Transition order={2} enter="fade-enter" do={() => (grid_n_cols = 'grid-cols-2')}>
 					<div
-						class="flex h-full max-w-[20ch] flex-col border border-2 border-[#e03131] bg-[var(--r-background-color)] p-8"
+						class="flex h-full max-w-[20ch] flex-col border border-2 border-[#f46e72] bg-[var(--r-background-color)] p-8"
 					>
 						<h2 class="mb-5 text-2xl">Vector-based retrieval</h2>
 						<ul class="list-disc pl-5 text-left text-xl">
@@ -357,7 +358,7 @@
 			hidden = "opacity-0 hidden"
 		}}
 		>
-			<h1 class="{headingClasses} static text-7xl !text-yellow-300">Roadmap</h1>
+			<h1 class="{headingClasses} static text-7xl !text-yellow-300">Upcoming roadmap</h1>
 			</Transition>
 			<Transition
 			enter="fade-enter"
@@ -365,20 +366,34 @@
 			order={1}
 			do={() => {
 				layout = 'h-[600px]'
-				stepNo = 1
-				headingClasses = "text-left pl-32"
+				stepNo = 0
+				headingClasses = "text-left pl-32 max-w-[16ch]"
 			hidden = "opacity-100"
 			}}
 			undo={() => {
 				layout = ''
+				headingClasses = ''
 				hidden = "opacity-0 hidden"
 			}}
 		>
 			<div class="{layout} m-16 flex flex-col place-content-center place-items-center">
 				<div class=" h-[100vh] w-[100vw] {hidden}">
-					{@html roadmap}
+<Roadmap {stepNo} />
 				</div>
 		</Transition>
+	</Slide>
+	<Slide
+		class="h-full place-content-center place-items-start"
+		in={() => {
+			headingClasses = ''
+			layout = ''
+		}}
+		out={() => {
+				layout = 'h-[600px]'
+				headingClasses = "text-left pl-32 max-w-[16ch]"
+			hidden = "opacity-100"
+		}}
+	>
 	</Slide>
 </Presentation>
 
