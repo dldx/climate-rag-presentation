@@ -25,7 +25,7 @@
 </script>
 
 <div
-	class="ml-20"
+	class="ml-10 xl:ml-20"
 	style="--ask-opacity:{stepNo > 0 || stepNo == 0 ? '1' : '0.1'};
 		   --initial-web-search-opacity:{stepNo > 1 || stepNo == 0 ? '1' : '0.1'};
 		   --web-search-opacity:{stepNo > 2 || stepNo == 0 ? '1' : '0.1'};

@@ -23,7 +23,9 @@
 		controls: true,
 		progress: true,
 		width: 1920,
-		height: 1080
+		height: 1080,
+		// disableLayout = false autoscales the slides to fit the screen
+		// disableLayout: false
 	}}
 >
 	<Slide class="h-full place-content-center place-items-center" out={() => (hidden = 'hidden')}>
@@ -33,7 +35,9 @@
 			</p>
 			<p class="mt-4 xl:mt-8 text-xl xl:text-3xl" style="font-family: var(--r-climate-rag-font)">
 				An AI-assisted research tool for energy and climate data
-			</p></Transition
+			</p>
+			<p class="block sm:hidden text-sm">This presentation isn't yet suitable for mobile screens.</p>
+			</Transition
 		>
 		<Transition class={hidden} do={() => (hidden = 'hidden')} undo={() => (hidden = '')}>
 			<div class="m-5 xl:m-10 flex flex-row items-center gap-5 xl:gap-10 text-left">
@@ -235,7 +239,7 @@
 				</div>
 				<Transition
 					enter="fade-enter"
-					class=" h-[100vh] w-[95vw]"
+					class=" h-[85vh] w-[85vw] xl:h-[100vh] xl:w-[95vw]"
 					do={() => {
 						visibility = 'hidden'
 						stepNo = 0
@@ -367,7 +371,7 @@
 			do={() => {
 				layout = 'h-[70vh]'
 				stepNo = 0
-				headingClasses = 'text-left pl-32 max-w-[16ch]'
+				headingClasses = 'text-left pl-32 pt-16 max-w-[16ch]'
 				hidden = 'opacity-100'
 			}}
 			undo={() => {
@@ -391,7 +395,7 @@
 		}}
 		out={() => {
 			layout = 'h-[70vh]'
-			headingClasses = 'text-left pl-32 max-w-[16ch]'
+			headingClasses = 'text-left pt-16 pl-32 max-w-[16ch]'
 			hidden = 'opacity-100'
 			stepNo = 6
 		}}
