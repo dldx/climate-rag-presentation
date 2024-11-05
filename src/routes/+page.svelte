@@ -29,16 +29,16 @@
 	<Slide class="h-full place-content-center place-items-center" out={() => (hidden = 'hidden')}>
 		<Transition enter="blurry-enter" visible>
 			<p class="text-8xl font-bold drop-shadow-sm">
-				<img src="./logo.svg" alt="Climate RAG logo" class="w-96" />
+				<img src="./logo.svg" alt="Climate RAG logo" class=" w-56 xl:w-96" />
 			</p>
-			<p class="mt-8 text-3xl" style="font-family: var(--r-climate-rag-font)">
+			<p class="mt-4 xl:mt-8 text-xl xl:text-3xl" style="font-family: var(--r-climate-rag-font)">
 				An AI-assisted research tool for energy and climate data
 			</p></Transition
 		>
 		<Transition class={hidden} do={() => (hidden = 'hidden')} undo={() => (hidden = '')}>
-			<div class="m-10 flex flex-row items-center gap-10 text-left">
-				<div class="w-[300px]">
-					<ul class="flex flex-col items-end text-right text-xl">
+			<div class="m-5 xl:m-10 flex flex-row items-center gap-5 xl:gap-10 text-left">
+				<div class="w-[30vw] max-w-[300px]">
+					<ul class="flex flex-col items-end text-right  text-sm xl:text-xl">
 						<Transition>
 							<li
 								style={`--r-max-width:${randomNum(20, 40)}ch; --r-arrow-v-offset:${randomNum(-1, -99)}%`}
@@ -89,7 +89,7 @@
 						</Transition>
 					</ul>
 				</div>
-				<div class="h-[600px] grow">
+				<div class="grow h-[65vh]">
 					<video class="v-full h-full rounded-lg" src="./climate-rag.webm" muted autoplay loop>
 					</video>
 				</div>
@@ -99,12 +99,12 @@
 
 	<Slide class="h-full place-content-center place-items-center">
 		<Transition visible>
-			<h1 class="text-7xl">What problem are we trying to solve?</h1>
+			<h1 class="text-4xl xl:text-4xl xl:text-7xl">What problem are we trying to solve?</h1>
 		</Transition>
 
 		<Transition
 			enter="fade-enter"
-			do={() => (layout = 'h-[600px]')}
+			do={() => (layout = 'h-[70vh]')}
 			order={1}
 			undo={() => {
 				layout = ''
@@ -112,10 +112,9 @@
 			class="hidden"
 		>
 			<div
-				class="{layout} m-16 grid grid-cols-2 gap-10"
-				style="grid-template-columns: minmax(0, 500px) 1fr;"
+				class="{layout} m-8 xl:m-16 grid grid-cols-2 gap-5 xl:gap-10 xl:grid-cols-[minmax(0,_500px)_1fr] grid-cols-[minmax(0, 300px)_1fr]"
 			>
-				<div class="flex max-w-[400px] flex-col place-content-center gap-4 text-xl">
+				<div class="flex max-w-[600px] xl:max-w-[400px] flex-col place-content-center gap-4 text-sm xl:text-xl">
 					<Transition enter="fade-enter" order={1} do={() => (imageToDisplay = 'many-sources')}>
 						<div class="problem {imageToDisplay == 'many-sources' ? 'selected-problem' : ''}">
 							Data often scattered across multiple sources and document formats.
@@ -162,7 +161,7 @@
 				</div>
 
 				<div class="flex place-content-center place-items-center">
-					<div class="w-[500px]">
+					<div class="w-[30vw]">
 						<img
 							class={imageToDisplay == 'many-sources' ? 'w-full' : 'hidden'}
 							src="./many-sources.svg"
@@ -205,14 +204,14 @@
 		}}
 	>
 		<Transition visible>
-			<h1 class="static text-7xl !text-yellow-300">The Solution</h1>
+			<h1 class="static text-4xl xl:text-7xl !text-yellow-300">The Solution</h1>
 		</Transition>
 		<Transition
 			enter="enter"
 			class="hidden"
 			order={1}
 			do={() => {
-				layout = 'h-[600px]'
+				layout = 'h-[70vh]'
 				visibility = ''
 				stepNo = 1
 			}}
@@ -223,10 +222,10 @@
 		>
 			<div class="{layout} m-16 flex flex-col place-content-center place-items-center">
 				<div
-					class="{visibility} flex max-w-[50ch] flex-col place-content-center place-items-center text-xl"
+					class="{visibility} flex max-w-[50ch] flex-col place-content-center place-items-center text-sm xl:text-xl"
 				>
-					<Transition enter="fade-enter" order={1} class="text-4xl">
-						RAG <br /><span class="text-lg">aka</span><br />
+					<Transition enter="fade-enter" order={1} class="text-2xl xl:text-4xl">
+						RAG <br /><span class="text-sm xl:text-lg">aka</span><br />
 						<strong>Retrieval Augmented Generation</strong>
 					</Transition>
 					<Transition enter="fade-enter" class="mt-16">
@@ -259,7 +258,7 @@
 		}}
 	>
 		<Transition visible>
-			<h1 class="text-7xl">Current limitations</h1>
+			<h1 class="text-4xl xl:text-7xl">Current limitations</h1>
 		</Transition>
 		<Transition
 			enter="fade-enter"
@@ -269,13 +268,13 @@
 				grid_n_cols = 'grid-cols-1'
 			}}
 		>
-			<div class=" m-16 grid {grid_n_cols} items-stretch gap-3">
+			<div class="m-8 xl:m-16 grid {grid_n_cols} items-stretch gap-3">
 				<Transition order={1} enter="fade-enter" do={() => (grid_n_cols = 'grid-cols-1')}>
 					<div
-						class="flex h-full max-w-[20ch] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-8"
+						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-4 xl:p-8"
 					>
-						<h2 class="mb-5 text-2xl">LLMs</h2>
-						<ul class="list-disc pl-5 text-left text-xl">
+						<h2 class="mb-5 text-xl xl:text-2xl">LLMs</h2>
+						<ul class="list-disc pl-5 text-left text-sm xl:text-xl">
 							<li>LLMs occasionally hallucinate when sources don't contain enough information.</li>
 							<li>Multi-modal LLMs not yet capable of parsing complex tables with colour keys.</li>
 							<li>
@@ -298,10 +297,10 @@
 				</Transition>
 				<Transition order={2} enter="fade-enter" do={() => (grid_n_cols = 'grid-cols-2')}>
 					<div
-						class="flex h-full max-w-[20ch] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-8"
+						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-4 xl:p-8"
 					>
-						<h2 class="mb-5 text-2xl">Vector-based retrieval</h2>
-						<ul class="list-disc pl-5 text-left text-xl">
+						<h2 class="mb-5 text-xl xl:text-2xl">Vector-based retrieval</h2>
+						<ul class="list-disc pl-5 text-left text-sm xl:text-xl">
 							<li>Vector databases are more expensive than traditional databases at scale</li>
 							<li>
 								Adopting improved embeddings models requires regenerating embeddings for entire
@@ -318,10 +317,10 @@
 				</Transition>
 				<Transition order={3} enter="fade-enter" do={() => (grid_n_cols = 'grid-cols-3')}>
 					<div
-						class="flex h-full max-w-[20ch] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-8"
+						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-4 xl:p-8"
 					>
-						<h2 class="mb-5 text-2xl">Climate-RAG pipeline</h2>
-						<ul class="list-disc pl-5 text-left text-xl">
+						<h2 class="mb-5 text-xl xl:text-2xl">Climate-RAG pipeline</h2>
+						<ul class="list-disc pl-5 text-left text-sm xl:text-xl">
 							<li>Data in plots and images are ignored (for now)</li>
 							<li>
 								Answering complex, multi-step questions requires manual orchestration (for now)
@@ -359,14 +358,14 @@
 				hidden = 'opacity-0 hidden'
 			}}
 		>
-			<h1 class="{headingClasses} static text-7xl !text-yellow-300">Upcoming roadmap</h1>
+			<h1 class="{headingClasses} static text-4xl xl:text-7xl !text-yellow-300">Upcoming roadmap</h1>
 		</Transition>
 		<Transition
 			enter="fade-enter"
 			class="hidden"
 			order={1}
 			do={() => {
-				layout = 'h-[600px]'
+				layout = 'h-[70vh]'
 				stepNo = 0
 				headingClasses = 'text-left pl-32 max-w-[16ch]'
 				hidden = 'opacity-100'
@@ -391,17 +390,18 @@
 			layout = ''
 		}}
 		out={() => {
-			layout = 'h-[600px]'
+			layout = 'h-[70vh]'
 			headingClasses = 'text-left pl-32 max-w-[16ch]'
 			hidden = 'opacity-100'
+			stepNo = 6
 		}}
 	>
 		<Transition enter="blurry-enter" visible>
-			<p class="text-8xl font-bold drop-shadow-sm">
+			<p class="text-4xl xl:text-8xl font-bold drop-shadow-sm">
 				<img src="./logo.svg" alt="Climate RAG logo" class="w-96" />
 			</p>
-			<p class="text-3xl p-16 max-w-[50ch]">Thanks for your interest! Climate-RAG is a work in progress. If you would like to try it out, check out the Github repository or contact <a href="https://bsky.app/profile/dldx.org" target="_blank">@dldx.org</a> to get access to a hosted instance.</p>
-			<p class="mt-8 text-3xl" style="font-family: var(--r-climate-rag-font)">
+			<p class="text-xl xl:text-3xl p-16 max-w-[50ch]">Thanks for your interest! Climate-RAG is a work in progress. If you would like to try it out, check out the Github repository or contact <a href="https://bsky.app/profile/dldx.org" target="_blank">@dldx.org</a> to get access to a hosted instance.</p>
+			<p class="mt-8 text-xl xl:text-3xl" style="font-family: var(--r-climate-rag-font)">
 				<a class="btn" href="https://github.com/dldx/climate-rag" rel="noopener" target="_blank"
 					><svg
 						viewBox="0 0 16 16"
@@ -438,7 +438,6 @@
 	.btn:active {
 		transform: translateY(1px);
 	}
-
 	h1 {
 		font-family: var(--r-heading-font);
 		color: var(--r-heading-color);
@@ -463,10 +462,20 @@
 		position: absolute;
 		top: 50%; /* Center vertically */
 		left: 100%; /* Position at the right edge */
+		transform: translateY(calc(var(--r-arrow-v-offset)/2)) translateX(-1px); /* Center the arrow vertically */
+		border-top: 10px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-left: 10px solid white; /* Arrow color */
+	}
+
+	/* Set the large screen breakpoint */
+	@media (min-width: 1280px) {
+		.bubble::before {
 		transform: translateY(var(--r-arrow-v-offset)) translateX(-1px); /* Center the arrow vertically */
-		border-top: 20px solid transparent;
-		border-bottom: 10px solid transparent;
-		border-left: 20px solid white; /* Arrow color */
+			border-top: 20px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-left: 20px solid white; /* Arrow color */
+		}
 	}
 
 	.problem {
