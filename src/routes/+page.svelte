@@ -15,6 +15,7 @@
 	let randomNum = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
 	let imageToDisplay = $state('many-sources')
 	import { Lightbox } from 'svelte-lightbox'
+	import MagnifierOverlay from '$lib/MagnifierOverlay.svelte'
 </script>
 
 <Presentation
@@ -238,14 +239,18 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">ChatGPT</h2>
-						<Lightbox description="ChatGPT knows the answer but doesn't provide any citations">
-						<img
-							src="./comparison_screenshots/chatgpt_taqa.png"
-							alt="Screenshot showing that ChatGPT knows the answer but doesn't provide any citations"
-						/>
-						</Lightbox>
-						<div class="mt-auto mx-auto pt-5 text-xl xl:text-5xl">
+						<div class=" text-xl xl:text-5xl">
 							😐 <span class="text-sm">(no citations)</span>
+						</div>
+						<div class="flex grow items-center justify-center">
+							<MagnifierOverlay>
+							<Lightbox description="ChatGPT knows the answer but doesn't provide any citations">
+								<img
+									src="./comparison_screenshots/chatgpt_taqa.png"
+									alt="Screenshot showing that ChatGPT knows the answer but doesn't provide any citations"
+								/>
+							</Lightbox>
+							</MagnifierOverlay>
 						</div>
 					</div>
 				</Transition>
@@ -254,14 +259,19 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">Perplexity AI</h2>
-						<Lightbox description="Perplexity AI knows the answer, and returns additional information not requested.">
-						<img
-							src="./comparison_screenshots/perplexity_taqa.png"
-							alt="Screenshot showing that Perplexity AI knows the answer"
-						/>
-						</Lightbox>
-
-						<div class="mt-auto mx-auto pt-5 text-xl xl:text-5xl">🎉</div>
+						<div class="text-xl xl:text-5xl">🎉</div>
+						<div class="flex grow items-center justify-center">
+							<MagnifierOverlay>
+							<Lightbox
+								description="Perplexity AI knows the answer, and returns additional information not requested."
+							>
+								<img
+									src="./comparison_screenshots/perplexity_taqa.png"
+									alt="Screenshot showing that Perplexity AI knows the answer"
+								/>
+							</Lightbox>
+							</MagnifierOverlay>
+						</div>
 					</div></Transition
 				>
 				<Transition enter="fade-enter">
@@ -269,13 +279,20 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">Climate RAG</h2>
-						<Lightbox description="Climate RAG knows the answer and only returns relevant information.">
-						<img
-							src="./comparison_screenshots/climate-rag_taqa.png"
-							alt="Screenshot showing that Climate RAG knows the answer"
-						/>
-						</Lightbox>
-						<div class="mt-auto mx-auto pt-5 text-xl xl:text-5xl">🎉</div>
+						<div class="text-xl xl:text-5xl">🎉</div>
+						<div class="flex grow items-center justify-center">
+							<MagnifierOverlay>
+
+								<Lightbox
+									description="Climate RAG knows the answer and only returns relevant information."
+								>
+									<img
+										src="./comparison_screenshots/climate-rag_taqa.png"
+										alt="Screenshot showing that Climate RAG knows the answer"
+									/>
+								</Lightbox>
+							</MagnifierOverlay>
+						</div>
 					</div></Transition
 				>
 			</div></Transition
@@ -308,13 +325,16 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">ChatGPT</h2>
+						<div class="text-xl xl:text-5xl">👎</div>
+						<div class="flex grow items-center justify-center">
+						<MagnifierOverlay>
 						<Lightbox description="ChatGPT doesn't know the answer">
-						<img
-							src="./comparison_screenshots/chatgpt_camden.png"
-							alt="Screenshot showing that ChatGPT doesn't know the answer"
-						/>
-						</Lightbox>
-						<div class="mt-auto mx-auto h-20 w-20 pt-5 text-xl xl:text-5xl">👎</div>
+							<img
+								src="./comparison_screenshots/chatgpt_camden.png"
+								alt="Screenshot showing that ChatGPT doesn't know the answer"
+							/>
+						</Lightbox></MagnifierOverlay>
+						</div>
 					</div>
 				</Transition>
 				<Transition enter="fade-enter">
@@ -322,14 +342,17 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">Perplexity AI</h2>
+						<div class="text-xl xl:text-5xl">👎</div>
+						<div class="flex grow items-center justify-center">
+						<MagnifierOverlay>
 						<Lightbox description="Perplexity AI doesn't know the answer">
-						<img
-							src="./comparison_screenshots/perplexity_camden.png"
-							alt="Screenshot showing that Perplexity AI doesn't know the answer"
-						/>
-						</Lightbox>
+							<img
+								src="./comparison_screenshots/perplexity_camden.png"
+								alt="Screenshot showing that Perplexity AI doesn't know the answer"
+							/>
+						</Lightbox></MagnifierOverlay>
+						</div>
 
-						<div class="mt-auto mx-auto h-20 w-20 pt-5 text-xl xl:text-5xl">👎</div>
 					</div></Transition
 				>
 				<Transition enter="fade-enter">
@@ -337,13 +360,16 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">Climate RAG</h2>
+						<div class="text-xl xl:text-5xl">🎉</div>
+						<div class="flex grow items-center justify-center">
+						<MagnifierOverlay>
 						<Lightbox description="Climate RAG knows the answer">
-						<img
-							src="./comparison_screenshots/climate-rag_camden.png"
-							alt="Screenshot showing that Climate RAG knows the answer"
-						/>
-						</Lightbox>
-						<div class="mt-auto mx-auto h-20 w-20 pt-5 text-xl xl:text-5xl">🎉</div>
+							<img
+								src="./comparison_screenshots/climate-rag_camden.png"
+								alt="Screenshot showing that Climate RAG knows the answer"
+							/>
+						</Lightbox></MagnifierOverlay>
+						</div>
 					</div></Transition
 				>
 			</div></Transition
@@ -377,14 +403,20 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">ChatGPT</h2>
-						<Lightbox description="ChatGPT creates a plausible looking tables, but without any country-specific citations">
+						<div class="text-xl xl:text-5xl">
+							😐 <span class="text-sm">(no citations)</span>
+						</div>
+						<div class="flex grow items-center justify-center">
+						<MagnifierOverlay>
+						<Lightbox
+							description="ChatGPT creates a plausible looking tables, but without any country-specific citations"
+						>
 							<img
 								src="./comparison_screenshots/chatgpt_ppa.png"
 								alt="Screenshot showing that ChatGPT creates a plausible looking table, but without any country-specific citations"
 							/>
 						</Lightbox>
-						<div class="mt-auto mx-auto pt-5 text-xl xl:text-5xl">
-							😐 <span class="text-sm">(no citations)</span>
+						</MagnifierOverlay>
 						</div>
 					</div>
 				</Transition>
@@ -393,15 +425,18 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">Perplexity AI</h2>
+						<div class="text-xl xl:text-5xl">👎</div>
+						<div class="flex grow items-center justify-center">
+						<MagnifierOverlay>
 						<Lightbox description="Perplexity AI doesn't know the answer">
-
-						<img
-							src="./comparison_screenshots/perplexity_ppa.png"
-							alt="Screenshot showing that Perplexity AI doesn't know the answer"
-						/>
+							<img
+								src="./comparison_screenshots/perplexity_ppa.png"
+								alt="Screenshot showing that Perplexity AI doesn't know the answer"
+							/>
 						</Lightbox>
+						</MagnifierOverlay>
+						</div>
 
-						<div class="mt-auto mx-auto pt-5 text-xl xl:text-5xl">👎</div>
 					</div></Transition
 				>
 				<Transition enter="fade-enter">
@@ -409,15 +444,20 @@
 						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">Climate-RAG</h2>
-						<Lightbox description="Climate RAG creates the correct table, with citations for each country. The queries were triggered through the Climate RAG tools and formatted into a table using Google Gemini">
-						<img
-							src="./comparison_screenshots/climate-rag_ppa.png"
-							alt="Screenshot showing that Climate RAG knows the answer"
-						/>
-						</Lightbox>
-						<div class="mt-auto mx-auto pt-5 text-xl xl:text-5xl">
+						<div class="text-xl xl:text-5xl">
 							🎉<span class="text-sm">(with some manual orchestration)</span>
 						</div>
+						<div class="flex grow items-center justify-center">
+						<MagnifierOverlay>
+						<Lightbox
+							description="Climate RAG creates the correct table, with citations for each country. The queries were triggered through the Climate RAG tools and formatted into a table using Google Gemini"
+						>
+							<img
+								src="./comparison_screenshots/climate-rag_ppa.png"
+								alt="Screenshot showing that Climate RAG knows the answer"
+							/>
+						</Lightbox>
+						</MagnifierOverlay></div>
 					</div></Transition
 				>
 			</div></Transition
