@@ -97,7 +97,7 @@
 					</ul>
 				</div>
 				<div class="h-[65vh] grow">
-					<video class="v-full h-full rounded-lg" src="./climate-rag.webm" muted autoplay loop>
+					<video class="v-full h-full rounded-sm shadow-[5px_5px_10px_#89b2647a]" src="./climate-rag.webm" muted autoplay loop>
 					</video>
 				</div>
 			</div></Transition
@@ -125,7 +125,7 @@
 					class="flex max-w-[600px] flex-col place-content-center gap-4 text-sm xl:max-w-[400px] xl:text-xl"
 				>
 					<Transition enter="fade-enter" order={1} do={() => (imageToDisplay = 'many-sources')}>
-						<div class="problem {imageToDisplay == 'many-sources' ? 'selected-problem' : ''}">
+						<div class="problem {imageToDisplay == 'many-sources' ? 'highlighted-block' : ''}">
 							Data often scattered across multiple sources and document formats.
 						</div>
 					</Transition>
@@ -135,13 +135,13 @@
 						do={() => (imageToDisplay = 'native-language')}
 						undo={() => (imageToDisplay = 'many-sources')}
 					>
-						<div class="problem {imageToDisplay == 'native-language' ? 'selected-problem' : ''}">
+						<div class="problem {imageToDisplay == 'native-language' ? 'highlighted-block' : ''}">
 							Sometimes, the best insights are disclosed in native language documents, rather than
 							in English.
 						</div>
 					</Transition>
 					<Transition enter="fade-enter" order={3} do={() => (imageToDisplay = 'long-report')}>
-						<div class="problem {imageToDisplay == 'long-report' ? 'selected-problem' : ''}">
+						<div class="problem {imageToDisplay == 'long-report' ? 'highlighted-block' : ''}">
 							Govt. and corporate reports are often long, unwieldy and unsearchable (due to scanned
 							text).
 						</div>
@@ -151,7 +151,7 @@
 						order={4}
 						do={() => (imageToDisplay = 'report-timeseries')}
 					>
-						<div class="problem {imageToDisplay == 'report-timeseries' ? 'selected-problem' : ''}">
+						<div class="problem {imageToDisplay == 'report-timeseries' ? 'highlighted-block' : ''}">
 							A time series dataset may be published across multiple reports, which is tedious to
 							aggregate.
 						</div>
@@ -162,7 +162,7 @@
 						do={() => (imageToDisplay = 'brittle-scraping')}
 						undo={() => (imageToDisplay = 'report-timeseries')}
 					>
-						<div class="problem {imageToDisplay == 'brittle-scraping' ? 'selected-problem' : ''}">
+						<div class="problem {imageToDisplay == 'brittle-scraping' ? 'highlighted-block' : ''}">
 							Using a classical web scraper requires bespoke code for each source, and is brittle to
 							changes in the source format.
 						</div>
@@ -765,7 +765,7 @@
 		transition: box-shadow 0.3s;
 	}
 
-	.selected-problem {
+	.highlighted-block {
 		box-shadow: 10px 10px 0px 0px #bde352;
 	}
 	:global(.svelte-lightbox-footer) {
