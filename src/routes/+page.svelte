@@ -16,6 +16,7 @@
 	let imageToDisplay = $state('many-sources')
 	import { Lightbox } from 'svelte-lightbox'
 	import MagnifierOverlay from '$lib/MagnifierOverlay.svelte'
+	import ComparisonCard from '$lib/ComparisonCard.svelte'
 </script>
 
 <Presentation
@@ -97,7 +98,13 @@
 					</ul>
 				</div>
 				<div class="h-[65vh] grow">
-					<video class="v-full h-full rounded-sm shadow-[5px_5px_10px_#89b2647a]" src="./climate-rag.webm" muted autoplay loop>
+					<video
+						class="v-full h-full rounded-sm shadow-[5px_5px_10px_#89b2647a]"
+						src="./climate-rag.webm"
+						muted
+						autoplay
+						loop
+					>
 					</video>
 				</div>
 			</div></Transition
@@ -235,66 +242,35 @@
 		>
 			<div class="{layout} m-4 grid grid-cols-3 items-stretch gap-3 xl:m-16">
 				<Transition enter="fade-enter" order={1}>
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">ChatGPT</h2>
-						<div class=" text-xl xl:text-5xl">
-							😐 <span class="text-sm">(no citations)</span>
-						</div>
-						<div class="flex grow items-center justify-center">
-							<MagnifierOverlay>
-							<Lightbox description="ChatGPT knows the answer but doesn't provide any citations">
-								<img
-									src="./comparison_screenshots/chatgpt_taqa.png"
-									alt="Screenshot showing that ChatGPT knows the answer but doesn't provide any citations"
-								/>
-							</Lightbox>
-							</MagnifierOverlay>
-						</div>
-					</div>
+					<ComparisonCard
+						title="ChatGPT"
+						emoji="😐"
+						emojiLabel="no citations"
+						imageUrl="./comparison_screenshots/chatgpt_taqa.png"
+						imageAlt="Screenshot showing that ChatGPT knows the answer but doesn't provide any citations"
+						lightboxDescription="ChatGPT knows the answer but doesn't provide any citations"
+					/>
 				</Transition>
-				<Transition enter="fade-enter">
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">Perplexity AI</h2>
-						<div class="text-xl xl:text-5xl">🎉</div>
-						<div class="flex grow items-center justify-center">
-							<MagnifierOverlay>
-							<Lightbox
-								description="Perplexity AI knows the answer, and returns additional information not requested."
-							>
-								<img
-									src="./comparison_screenshots/perplexity_taqa.png"
-									alt="Screenshot showing that Perplexity AI knows the answer"
-								/>
-							</Lightbox>
-							</MagnifierOverlay>
-						</div>
-					</div></Transition
-				>
-				<Transition enter="fade-enter">
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">Climate RAG</h2>
-						<div class="text-xl xl:text-5xl">🎉</div>
-						<div class="flex grow items-center justify-center">
-							<MagnifierOverlay>
 
-								<Lightbox
-									description="Climate RAG knows the answer and only returns relevant information."
-								>
-									<img
-										src="./comparison_screenshots/climate-rag_taqa.png"
-										alt="Screenshot showing that Climate RAG knows the answer"
-									/>
-								</Lightbox>
-							</MagnifierOverlay>
-						</div>
-					</div></Transition
-				>
+				<Transition enter="fade-enter">
+					<ComparisonCard
+						title="Perplexity AI"
+						emoji="🎉"
+						imageUrl="./comparison_screenshots/perplexity_taqa.png"
+						imageAlt="Screenshot showing that Perplexity AI knows the answer"
+						lightboxDescription="Perplexity AI knows the answer"
+					/>
+				</Transition>
+
+				<Transition enter="fade-enter">
+					<ComparisonCard
+						title="Climate RAG"
+						emoji="🎉"
+						imageUrl="./comparison_screenshots/climate-rag_taqa.png"
+						imageAlt="Screenshot showing that Climate RAG knows the answer"
+						lightboxDescription="Climate RAG knows the answer and only returns relevant information"
+					/>
+				</Transition>
 			</div></Transition
 		>
 	</Slide>
@@ -320,58 +296,35 @@
 			order={1}
 		>
 			<div class="{layout} m-4 grid grid-cols-3 items-stretch gap-3 xl:m-16">
-				<Transition enter="fade-enter" order={1}>
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">ChatGPT</h2>
-						<div class="text-xl xl:text-5xl">👎</div>
-						<div class="flex grow items-center justify-center">
-						<MagnifierOverlay>
-						<Lightbox description="ChatGPT doesn't know the answer">
-							<img
-								src="./comparison_screenshots/chatgpt_camden.png"
-								alt="Screenshot showing that ChatGPT doesn't know the answer"
-							/>
-						</Lightbox></MagnifierOverlay>
-						</div>
-					</div>
-				</Transition>
-				<Transition enter="fade-enter">
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">Perplexity AI</h2>
-						<div class="text-xl xl:text-5xl">👎</div>
-						<div class="flex grow items-center justify-center">
-						<MagnifierOverlay>
-						<Lightbox description="Perplexity AI doesn't know the answer">
-							<img
-								src="./comparison_screenshots/perplexity_camden.png"
-								alt="Screenshot showing that Perplexity AI doesn't know the answer"
-							/>
-						</Lightbox></MagnifierOverlay>
-						</div>
+				 <Transition enter="fade-enter" order={1}>
+      <ComparisonCard
+        title="ChatGPT"
+        emoji="👎"
+        lightboxDescription="ChatGPT doesn't know the answer"
+        imageUrl="./comparison_screenshots/chatgpt_camden.png"
+        imageAlt="Screenshot showing that ChatGPT doesn't know the answer"
+      />
+    </Transition>
 
-					</div></Transition
-				>
-				<Transition enter="fade-enter">
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">Climate RAG</h2>
-						<div class="text-xl xl:text-5xl">🎉</div>
-						<div class="flex grow items-center justify-center">
-						<MagnifierOverlay>
-						<Lightbox description="Climate RAG knows the answer">
-							<img
-								src="./comparison_screenshots/climate-rag_camden.png"
-								alt="Screenshot showing that Climate RAG knows the answer"
-							/>
-						</Lightbox></MagnifierOverlay>
-						</div>
-					</div></Transition
-				>
+    <Transition enter="fade-enter">
+      <ComparisonCard
+        title="Perplexity AI"
+        emoji="👎"
+        lightboxDescription="Perplexity AI doesn't know the answer"
+        imageUrl="./comparison_screenshots/perplexity_camden.png"
+        imageAlt="Screenshot showing that Perplexity AI doesn't know the answer"
+      />
+    </Transition>
+
+    <Transition enter="fade-enter">
+      <ComparisonCard
+        title="Climate RAG"
+        emoji="🎉"
+        lightboxDescription="Climate RAG knows the answer and only returns relevant information"
+        imageUrl="./comparison_screenshots/climate-rag_camden.png"
+        imageAlt="Screenshot showing that Climate RAG knows the answer"
+      />
+    </Transition>
 			</div></Transition
 		>
 	</Slide>
@@ -382,7 +335,7 @@
 					For the countries in the list, give me a table outlining which countries have PPAs or
 					liberalised power markets, and fuel-price pass through for gas power plants: Bahrain,
 					Bangladesh, Chile, Cote d'Ivoire, Egypt, Ghana, Indonesia, Iraq, Kuwait, Mozambique,
-					Myanmar, Nigeria, Philippines, Saudi Arabia, Tanzania, Thailand, Tunisia, Turkey, UAE
+					Myanmar, Nigeria, Philippines, [...]
 				</code>
 			</p>
 		</Transition>
@@ -399,67 +352,36 @@
 		>
 			<div class="{layout} m-4 grid grid-cols-3 items-stretch gap-3 xl:m-16">
 				<Transition enter="fade-enter" order={1}>
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">ChatGPT</h2>
-						<div class="text-xl xl:text-5xl">
-							😐 <span class="text-sm">(no citations)</span>
-						</div>
-						<div class="flex grow items-center justify-center">
-						<MagnifierOverlay>
-						<Lightbox
-							description="ChatGPT creates a plausible looking tables, but without any country-specific citations"
-						>
-							<img
-								src="./comparison_screenshots/chatgpt_ppa.png"
-								alt="Screenshot showing that ChatGPT creates a plausible looking table, but without any country-specific citations"
-							/>
-						</Lightbox>
-						</MagnifierOverlay>
-						</div>
-					</div>
-				</Transition>
-				<Transition enter="fade-enter">
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">Perplexity AI</h2>
-						<div class="text-xl xl:text-5xl">👎</div>
-						<div class="flex grow items-center justify-center">
-						<MagnifierOverlay>
-						<Lightbox description="Perplexity AI doesn't know the answer">
-							<img
-								src="./comparison_screenshots/perplexity_ppa.png"
-								alt="Screenshot showing that Perplexity AI doesn't know the answer"
-							/>
-						</Lightbox>
-						</MagnifierOverlay>
-						</div>
+  <ComparisonCard
+    title="ChatGPT"
+    emoji="😐"
+    emojiLabel="no citations"
+    lightboxDescription="ChatGPT creates a plausible looking tables, but without any country-specific citations"
+    imageUrl="./comparison_screenshots/chatgpt_ppa.png"
+    imageAlt="Screenshot showing that ChatGPT creates a plausible looking table, but without any country-specific citations"
+  />
+</Transition>
 
-					</div></Transition
-				>
-				<Transition enter="fade-enter">
-					<div
-						class="flex h-full max-w-[30vw] flex-col border border-2 border-[var(--r-climate-rag-color)] bg-[var(--r-background-color)] p-2 xl:p-4"
-					>
-						<h2 class="mb-5 text-xl xl:text-2xl">Climate-RAG</h2>
-						<div class="text-xl xl:text-5xl">
-							🎉<span class="text-sm">(with some manual orchestration)</span>
-						</div>
-						<div class="flex grow items-center justify-center">
-						<MagnifierOverlay>
-						<Lightbox
-							description="Climate RAG creates the correct table, with citations for each country. The queries were triggered through the Climate RAG tools and formatted into a table using Google Gemini"
-						>
-							<img
-								src="./comparison_screenshots/climate-rag_ppa.png"
-								alt="Screenshot showing that Climate RAG knows the answer"
-							/>
-						</Lightbox>
-						</MagnifierOverlay></div>
-					</div></Transition
-				>
+<Transition enter="fade-enter">
+  <ComparisonCard
+    title="Perplexity AI"
+    emoji="👎"
+    lightboxDescription="Perplexity AI doesn't know the answer"
+    imageUrl="./comparison_screenshots/perplexity_ppa.png"
+    imageAlt="Screenshot showing that Perplexity AI doesn't know the answer"
+  />
+</Transition>
+
+<Transition enter="fade-enter">
+  <ComparisonCard
+    title="Climate-RAG"
+    emoji="🎉"
+    emojiLabel="with some manual orchestration"
+    lightboxDescription="Climate RAG creates the correct table, with citations for each country. The queries were triggered through the Climate RAG tools and formatted into a table using Google Gemini"
+    imageUrl="./comparison_screenshots/climate-rag_ppa.png"
+    imageAlt="Screenshot showing that Climate RAG knows the answer"
+  />
+</Transition>
 			</div></Transition
 		>
 	</Slide>
@@ -502,14 +424,16 @@
 				</div>
 				<Transition
 					enter="fade-enter"
-					class=" h-[85vh] w-[85vw] xl:h-[100vh] xl:w-[95vw]"
+					class=" h-[80vh] w-[80vw] xl:h-[85vh] xl:w-[85vw]"
 					do={() => {
 						visibility = 'hidden'
 						stepNo = 0
+						layout = 'h-[70vh]'
 					}}
 					undo={() => {
 						visibility = ''
 						stepNo = 0
+						layout = 'h-[70vh]'
 					}}
 				>
 					<RagPipeline {stepNo} />
@@ -520,7 +444,7 @@
 	<Slide
 		class="h-full place-content-center place-items-center"
 		out={() => {
-			layout = ''
+						layout = 'h-[70vh]'
 			visibility = 'hidden'
 		}}
 	>
@@ -588,7 +512,7 @@
 					>
 						<h2 class="mb-5 text-xl xl:text-2xl">Climate RAG pipeline</h2>
 						<ul class="list-disc pl-5 text-left text-sm xl:text-xl">
-							<li>Not yet optimised for speed</li>
+							<li>Optimised for accuracy, not speed</li>
 							<li>Data in plots and images are ignored (for now)</li>
 							<li>
 								Answering complex, multi-step questions requires manual orchestration (for now)
