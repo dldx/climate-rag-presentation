@@ -40,10 +40,10 @@
 	{@html RagPipeline}
 </div>
 {#if stepNo > 0}
-<div class="absolute top-0 left-0 flex h-screen w-screen justify-center items-center">
+<div class="pointer-events-none absolute top-0 left-0 flex h-screen w-screen justify-center items-center">
 	<div
 		use:draggable={{ bounds: 'body', cancel: '.cancel' }}
-		class="backdrop-blur absolute left-10 flex max-h-[80%] max-w-[35ch] cursor-grab flex-col gap-4 overflow-auto border-2 p-4 text-left text-sm xl:text-xl"
+		class="pointer-events-auto backdrop-blur absolute left-10 flex max-h-[80%] max-w-[35ch] cursor-grab flex-col gap-4 overflow-auto border-2 p-4 text-left text-sm xl:text-xl"
 		style="transition: unset !important; border-color: var(--r-heading-color); box-shadow: 5px 5px 0px 0px rgba(37, 178, 100, 0.3); background-color: rgba(20,20,20,0.9);"
 	>
 		<div class="cancel cursor-auto">
