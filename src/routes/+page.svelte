@@ -30,14 +30,15 @@
 	}}
 >
 	<Slide class="h-full place-content-center place-items-center" out={() => (hidden = 'hidden')}>
-		<Transition enter="blurry-enter" visible>
+		<Transition enter="blurry-enter" visible
+		>
 			<p class="text-8xl font-bold drop-shadow-sm">
 				<img src="./logo.svg" alt="Climate RAG logo" class=" w-56 xl:w-96" />
 			</p>
-			<p class="mt-4 text-xl xl:mt-8 xl:text-3xl" style="font-family: var(--r-climate-rag-font)">
-				An AI-assisted research tool for energy and climate data
+			<p class=" mt-4 xl:mt-8 text-xl xl:text-3xl" style="font-family: var(--r-climate-rag-font)">
+				An AI-assisted research tool for energy and climate data, by <span class="font-mono"><a target="_blank" href="https://bsky.app/profile/dldx.org">Durand D'souza</a></span>
 			</p>
-			<p class="block text-sm sm:hidden">
+			<p class="text-center block text-sm sm:hidden">
 				This presentation isn't yet suitable for mobile screens.
 			</p>
 		</Transition>
@@ -425,8 +426,8 @@
 						<strong>Retrieval Augmented Generation</strong>
 					</Transition>
 					<Transition enter="fade-enter" class="mt-16">
-						This is a modern technique that combines the benefits of a database of verifiable
-						information, with the flexibility of a large language generative model.
+						A modern technique that combines the benefits of a database of verifiable
+						information, with the flexibility of a large language generative model to answer complex questions.
 					</Transition>
 				</div>
 				<Transition
